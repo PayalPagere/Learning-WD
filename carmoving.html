@@ -1,0 +1,77 @@
+<html>
+<title>
+Car moving
+</title>
+<head>
+<style>
+.container
+{
+background-color:#C0C0C0;
+}
+.container1
+{
+background-color:#20B2AA;
+}
+.container2
+{
+background-color:#A9A9A9;
+}
+</style>
+<script>
+
+var animate;
+var a=1;
+function init()
+{
+obj1=document.getElementById("myimage1");
+obj1.style.position="relative";
+obj1.style.left='0px';
+obj2=document.getElementById("myimage2");
+obj2.style.position="relative";
+obj2.style.left='0px';
+obj3=document.getElementById("myimage3");
+obj3.style.position="relative";
+obj3.style.left='0px';
+
+}
+function rightmove()
+{
+a=a+1;
+obj1.style.left=parseInt(obj1.style.left)+10+'px';
+obj2.style.left=parseInt(obj2.style.left)+15+'px';
+obj3.style.left=parseInt(obj3.style.left)+9+'px';
+animate = setTimeout(rightmove, 30);
+document.getElementById("timer").innerHTML=a;
+if(a==100)
+stop();
+}
+function stop()
+{
+clearTimeout(animate);
+obj1.style.left= '0px'
+obj2.style.left= '0px'
+obj3.style.left= '0px'
+}
+window.onload=init;
+</script>
+</head>
+<body>
+<h1>CAR MOVING </h1>
+
+<div class="container3">
+<h2> Timer: <span id="timer"></span></h2>
+</div>
+<div class="container">
+<image id="myimage1" src="carimage2.jpg"   width="100" height="80">
+</div>
+<div class="container1">
+<image id="myimage2" src="rightcar.jpg"   width="100" height="80">
+</div>
+<div class="container2">
+<image id="myimage3" src="Bugatti.jpg"   width="100" height="80">
+</div>
+
+<input type="button" value="start" onclick="rightmove();" />
+<input type="button" value="stop" onclick="stop();" />
+</body>
+</html>
